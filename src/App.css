@@ -5,6 +5,10 @@
 }
 
 
+body{
+  background-color: #000;
+}
+
 /* Full page wrapper */
 .coming-soon-wrapper {
   width: 100vw;
