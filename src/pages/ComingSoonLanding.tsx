@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
-import gif1 from '../assets/imgs/Lip_Animation.gif'
-import gif2 from '../assets/imgs/Character_Animation.gif'
+import gif1 from '../assets/gifs/Lip_Animation.gif'
+import gif2 from '../assets/gifs/Character_Animation.gif'
 
 const ComingSoonLanding = () => {
   return (
