@@ -10,7 +10,7 @@ const ComingSoonLanding = () => {
   return (
     <div className="coming-soon-wrapper">
       <Swiper spaceBetween={30} slidesPerView={1} style={{ width: "100%", height: "100%" }}>
-        
+
         {/* First GIF - Black Background */}
         <SwiperSlide className="slide-black">
           <div className="slide-content">
@@ -36,21 +36,19 @@ const ComingSoonLanding = () => {
         {/* Second GIF - Green Background */}
         <SwiperSlide className="slide-green">
           <div className="slide-content">
+
             <motion.img
               src={gif2}
               alt="Coming Soon GIF"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 60 }}   // start hidden + lower
+              whileInView={{ opacity: 1, y: 0 }} // fade in + rise up when slide in view
+              viewport={{ once: true }}          // only animate once
+              transition={{
+                duration: 2,
+                ease: [0.25, 0.25, 0.75, 1],      // smooth cubic easing
+              }}
             />
-            {/* <motion.h1
-              className="coming-title"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 1 }}
-            >
-              🚀 Coming Soon
-            </motion.h1> */}
+
           </div>
         </SwiperSlide>
       </Swiper>
