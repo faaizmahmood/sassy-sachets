@@ -75,7 +75,9 @@ body{
 
 @media (max-width:500px) {
   .slide-content img {
-    width: calc(100% - 20px);
-
+    width: 110.5%;
+  }
+  .slide-content .first_gif {
+    width: calc(100% - 20px) !important;
   }
 }

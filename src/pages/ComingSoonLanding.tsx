@@ -17,6 +17,7 @@ const ComingSoonLanding = () => {
             <motion.img
               src={gif1}
               alt="Intro GIF"
+              className="first_gif"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
