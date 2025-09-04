@@ -49,9 +49,9 @@ body{
   transition: transform 0.4s ease-in-out;
 }
 
-.slide-content img:hover {
+/* .slide-content img:hover {
   transform: scale(1.05);
-}
+} */
 
 /* Text styles */
 .swipe-hint {

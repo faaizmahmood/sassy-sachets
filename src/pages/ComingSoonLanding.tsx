@@ -1,57 +1,55 @@
-import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/effect-fade";
-import gif1 from '../assets/gifs/Lip_Animation.gif'
-import gif2 from '../assets/gifs/Character_Animation.gif'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import gif1 from "../assets/gifs/Lip_Animation.gif";
+import gif2 from "../assets/gifs/Character_Animation.gif";
 
 const ComingSoonLanding = () => {
+  const [step, setStep] = useState(1);
+
   return (
     <div className="coming-soon-wrapper">
-      <Swiper spaceBetween={30} slidesPerView={1} style={{ width: "100%", height: "100%" }}>
-
-        {/* First GIF - Black Background */}
-        <SwiperSlide className="slide-black">
-          <div className="slide-content">
+      <AnimatePresence mode="wait">
+        {step === 1 && (
+          <motion.div
+            key="slide1"
+            className="slide-black slide-content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            onClick={() => setStep(2)} // 👈 go to second slide on click
+          >
             <motion.img
               src={gif1}
               alt="Intro GIF"
               className="first_gif"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, }}
+              animate={{ opacity: 1, }}
+              transition={{ duration: 0.6 }}
             />
-            {/* <motion.p
-              className="swipe-hint"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 1 }}
-            >
-              👉 Swipe to see what’s coming
-            </motion.p> */}
-          </div>
-        </SwiperSlide>
+          </motion.div>
+        )}
 
-        {/* Second GIF - Green Background */}
-        <SwiperSlide className="slide-green">
-          <div className="slide-content">
-
+        {step === 2 && (
+          <motion.div
+            key="slide2"
+            className="slide-green slide-content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <motion.img
               src={gif2}
               alt="Coming Soon GIF"
-              initial={{ opacity: 0, y: 60 }}   // start hidden + lower
-              whileInView={{ opacity: 1, y: 0 }} // fade in + rise up when slide in view
-              viewport={{ once: true }}          // only animate once
-              transition={{
-                duration: 2,
-                ease: [0.25, 0.25, 0.75, 1],      // smooth cubic easing
-              }}
+              className=""
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
             />
-
-          </div>
-        </SwiperSlide>
-      </Swiper>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
